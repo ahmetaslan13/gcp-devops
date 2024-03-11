@@ -11,3 +11,6 @@ def hello_world():
     return "Hello, Simple Flask application"
 
 # Conditional check to ensure that the app is being run directly
+if __name__ == "__main__":
+    # Running the Flask application
+    app.run()

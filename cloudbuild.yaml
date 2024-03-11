@@ -1,16 +1,16 @@
 steps:
-  # build the container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/$PROJECT_ID/gcpdevops-dev", "."]
-  # push container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/$PROJECT_ID/gcpdevops-dev"]
-  # deploy container image to GKE
-- name: "gcr.io/cloud-builders/gke-deploy"
+  # Build the container image
+- name: "gcr.io/cloud-builders/docker"  # Use the Docker Cloud Build image
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/gcpdevops", "."]  # Build the Docker container image with specified tag
+  # Push container image
+- name: "gcr.io/cloud-builders/docker"  # Use the Docker Cloud Build image
+  args: ["push", "gcr.io/$PROJECT_ID/gcpdevops"]  # Push the Docker container image to Google Container Registry
+  # Deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"  # Use the Google Kubernetes Engine deploy Cloud Build image
   args:
   - run
-  - --filename=gke.yaml
-  - --image=gcr.io/$PROJECT_ID/gcpdevops-dev
-  - --location=southamerica-west1-b
-  - --cluster=gcp-devops-project
-  - --namespace=gcp-devops-dev
+  - --filename=gke.yaml  # Specify the YAML configuration file for deployment
+  - --image=gcr.io/$PROJECT_ID/gcpdevops  # Specify the Docker container image to deploy
+  - --location=southamerica-west1-b  # Specify the location for the GKE cluster
+  - --cluster=gcp-devops-project  # Specify the GKE cluster name
+  - --namespace=gcp-devops  # Specify the namespace for deployment
