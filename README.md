@@ -19,6 +19,7 @@ This repository contains code and configurations for deploying a simple Flask ap
    git clone https://github.com/ahmetaslan13/gcp-devops.git
    cd gcp-devops
    ```
+![Screenshot 2024-03-12 at 8 31 20 AM](https://github.com/ahmetaslan13/gcp-devops/assets/72533023/0ecc663f-42dc-4e0d-9de6-a4f574ddac69)
 
 2. **Set Up Google Cloud Project:**
    Ensure you have a Google Cloud Platform (GCP) project set up with billing enabled and the necessary APIs enabled (such as Kubernetes Engine API).
